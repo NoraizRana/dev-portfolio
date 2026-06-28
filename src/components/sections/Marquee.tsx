@@ -1,6 +1,6 @@
 const WORDS = [
   "MERN STACK",
-  "REAL-TIME",
+  "JAVASCRIPT",
   "AI INTEGRATION",
   "SOCKET.IO",
   "NODE.JS",
@@ -9,7 +9,7 @@ const WORDS = [
   "REST API",
   "TF-IDF NLP",
   "JWT AUTH",
-  "OPEN TO WORK",
+  "EXPRESS.JS",
 ]
 
 function Row({ reverse }: { reverse?: boolean }) {
