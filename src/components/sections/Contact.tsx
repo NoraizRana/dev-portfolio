@@ -15,9 +15,9 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const socials = [
-  { label: "LinkedIn", icon: IconBrandLinkedin, href: "https://linkedin.com" },
+  { label: "LinkedIn", icon: IconBrandLinkedin, href: "https://linkedin.com/noraiz-rana" },
   { label: "GitHub", icon: IconBrandGithub, href: "https://github.com/noraizrana" },
-  { label: "WhatsApp", icon: IconBrandWhatsapp, href: "https://wa.me/" },
+  { label: "WhatsApp", icon: IconBrandWhatsapp, href: "https://wa.me/+923495880361" },
 ]
 
 export default function Contact() {
@@ -107,7 +107,7 @@ export default function Contact() {
 
         <div>
           <a
-            href="mailto:nr@email.com"
+            href="mailto:noraizrana389@gmail.com"
             className="block font-display text-3xl text-text-white transition-colors hover:text-neon-green md:text-4xl"
           >
             → nr@email.com

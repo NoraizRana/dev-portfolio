@@ -139,7 +139,7 @@ export default function Hero() {
             VIEW MY WORK
           </NeonButton>
           <a
-            href="#"
+            href="noraiz-rana-cv.pdf"
             className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wider text-text-off transition-colors hover:text-neon-green"
           >
             / Download CV
