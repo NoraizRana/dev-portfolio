@@ -1,0 +1,47 @@
+{
+  "name": "noraiz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@radix-ui/react-dialog": "^1.1.4",
+    "@radix-ui/react-tabs": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.6",
+    "@tabler/icons-react": "^3.26.0",
+    "animejs": "^3.2.2",
+    "canvas-confetti": "^1.9.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "react": "^18.3.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "react-hot-toast": "^2.4.1",
+    "react-intersection-observer": "^9.14.1",
+    "react-router-dom": "^6.28.1",
+    "react-type-animation": "^3.2.0",
+    "tailwind-merge": "^2.6.0",
+    "vanilla-tilt": "^1.8.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/animejs": "^3.1.12",
+    "@types/canvas-confetti": "^1.6.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  }
+}

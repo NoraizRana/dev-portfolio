@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --surface-1: #111111;
+  --surface-2: #1a1a1a;
+  --neon-green: #39ff14;
+  --neon-pink: #ff2d78;
+  --neon-yellow: #ffd60a;
+  --text-white: #ffffff;
+  --text-off: #e5e5e5;
+  --text-muted: #666666;
+  --line: #222222;
+  --line-accent: rgba(57, 255, 20, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  background-color: var(--bg);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text-off);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--neon-green);
+  color: #000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+}
+
+/* Custom cursor — hide native on devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-active * {
+    cursor: none !important;
+  }
+}
+
+.text-stroke-green {
+  -webkit-text-stroke: 2px var(--neon-green);
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .text-stroke-green {
+    -webkit-text-stroke: 1px var(--neon-green);
+  }
+}
+
+.ghost-number {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 700;
+  opacity: 0.04;
+  color: var(--text-white);
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-contain {
+  contain: layout;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
