@@ -110,7 +110,7 @@ export default function Contact() {
             href="mailto:noraizrana389@gmail.com"
             className="block font-display text-3xl text-text-white transition-colors hover:text-neon-green md:text-4xl"
           >
-            → nr@email.com
+            → noraizrana389@gmail.com
           </a>
 
           <ul className="mt-10 space-y-4">

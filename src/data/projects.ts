@@ -49,7 +49,7 @@ export const projects: Project[] = [
     category: "AI+NLP",
     stack: ["Python", "TF-IDF", "MERN", "Web Speech API"],
     description:
-      "Final year project — AI Q&A engine for algorithms. Custom NLP, 228 entries, voice input support.",
+      "Final year project — AI Q&A engine for algorithms. Custom NLP, 15000 Q&A entries, voice input support.",
     badge: "FYP",
     overview:
       "The AoA Virtual Teaching Assistant answers algorithm questions using a custom TF-IDF NLP engine trained on 228 curated Q&A entries. It supports voice input via the Web Speech API and surfaces ranked answers in real time.",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Serving the NLP engine alongside a MERN stack.",
     ],
     solutions: [
-      "Hand-tuned TF-IDF vectorizer with cosine ranking over 228 entries.",
+      "Hand-tuned TF-IDF vectorizer with cosine ranking over 15000 entries.",
       "Transcript normalization + fuzzy matching before scoring.",
       "Python microservice exposed through an Express gateway.",
     ],

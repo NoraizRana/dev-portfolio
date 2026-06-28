@@ -14,11 +14,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "Database & Cloud",
-    skills: ["MongoDB", "Mongoose", "Oracle 21c", "Firebase (basic)"],
+    skills: ["MongoDB", "Mongoose", "MySQL", "Oracle 21c", "Firebase (basic)"],
   },
   {
     title: "AI & Tooling",
-    skills: ["Python", "TF-IDF NLP", "Web Speech API", "Git", "Postman", "VS Code"],
+    skills: ["Python", "TF-IDF NLP", "Web Speech API", "Git", "Postman", "VS Code", "GitHub"],
   },
 ]
 
@@ -28,10 +28,10 @@ export interface Proficiency {
 }
 
 export const proficiencies: Proficiency[] = [
-  { name: "React", value: 88 },
-  { name: "Node.js", value: 82 },
-  { name: "MongoDB", value: 78 },
-  { name: "Python", value: 72 },
+  { name: "React", value: 84 },
+  { name: "Node.js", value: 80 },
+  { name: "MongoDB", value: 72 },
+  { name: "Python", value: 60 },
   { name: "Socket.io", value: 75 },
   { name: "TailwindCSS", value: 90 },
 ]

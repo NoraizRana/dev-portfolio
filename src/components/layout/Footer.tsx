@@ -5,10 +5,10 @@ export default function Footer() {
       <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <div className="flex items-baseline gap-3">
           <span className="font-display text-2xl text-text-white">NORAIZ RANA</span>
-          <span className="font-mono text-xs text-text-muted">2026</span>
+          <span className="font-mono text-xs text-text-muted">2025</span>
         </div>
         <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-          Designed &amp; built by Noraiz Rana — MERN Stack
+          Designed &amp; built by Noraiz Rana
         </p>
       </div>
     </footer>
