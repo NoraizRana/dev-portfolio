@@ -146,7 +146,7 @@ function ProfileFrame() {
         transition={{ delay: 1.5 }}
         className="absolute -left-3 bottom-16 border border-line bg-bg px-3 py-2 z-30 hidden sm:block"
       >
-        <p className="font-display text-2xl text-neon-green leading-none">3+</p>
+        <p className="font-display text-2xl text-neon-green leading-none">2+</p>
         <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mt-0.5">Yrs</p>
       </motion.div>
     </motion.div>
@@ -251,7 +251,7 @@ export default function Hero() {
                 Fresh grad, serious craft.
               </p>
               <p className="mt-4 font-mono text-xs uppercase tracking-wider text-neon-green">
-                10+ projects · GPA 3.4 · 2+ years
+                10+ Full Stack Projects · 2+ years Experience
               </p>
             </div>
           </div>

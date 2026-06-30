@@ -22,10 +22,10 @@ export default function About() {
           </p>
 
           <div className="mt-10 space-y-6 font-sans text-base leading-relaxed text-text-off">
-            <p>BS IT from University of Sargodha (GPA 3.4), class of 2026.</p>
+            <p>BS IT from University of Sargodha, class of 2026.</p>
             <p>
               At Steganox AI, I build real products — not demos. My FYP (AoA Virtual Teaching
-              Assistant) runs a custom TF-IDF NLP engine with 228 Q&amp;A entries on algorithms.
+              Assistant) runs a custom TF-IDF NLP engine with 15000+ Q&amp;A entries on algorithms.
             </p>
             <p>
               I don&apos;t just use AI tools — I build them. And I&apos;m looking for a team that
@@ -56,7 +56,7 @@ export default function About() {
         <div ref={ref}>
           <div className="text-right">
             <span className="font-display text-[120px] leading-none text-neon-green md:text-[160px]">
-              {inView ? <CountUp end={3.4} decimals={1} duration={1.6} /> : "0.0"}
+              {inView ? <CountUp end={3.36} decimals={1} duration={1.6} /> : "0.0"}
             </span>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-text-muted">
               CGPA / 4.0

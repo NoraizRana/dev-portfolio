@@ -20,7 +20,14 @@ export default function Education() {
             </span>
             <div>
               <p className="font-sans text-sm text-text-off">{row.degree}</p>
-              <p className="mt-1 font-mono text-sm text-neon-green">{row.detail}</p>
+              <div className="mt-1 flex flex-wrap items-center gap-3">
+                <p className="font-mono text-sm text-neon-green">{row.detail}</p>
+                {row.percentage && (
+                  <span className="border border-neon-green px-2 py-0.5 font-mono text-xs text-neon-green">
+                    {row.percentage}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         ))}

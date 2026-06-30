@@ -18,7 +18,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: "AI & Tooling",
-    skills: ["Python", "TF-IDF NLP", "Web Speech API", "Git", "Postman", "VS Code", "GitHub"],
+    skills: ["Python", "TF-IDF NLP", "Web Speech API", "Postman", "VS Code", "GitHub", "Claude", "Cursor", "ChatGPT"],
   },
 ]
 
