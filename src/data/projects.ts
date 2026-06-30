@@ -9,6 +9,7 @@ export interface Project {
   stack: string[]
   description: string
   badge?: string
+  thumbnail: string
   overview: string
   challenges: string[]
   solutions: string[]
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     stack: ["MERN", "Socket.io", "JWT", "RBAC"],
     description:
       "Real-time collaboration platform with live editing, role-based access, and instant sync.",
+    thumbnail: "/projects/collaborink.png",
     overview:
       "CollaborInk is a production-grade real-time collaboration platform that lets teams co-author documents with sub-100ms sync. It implements granular role-based access control and JWT-secured sessions across a horizontally scalable Socket.io layer.",
     challenges: [
@@ -38,7 +40,7 @@ export const projects: Project[] = [
       "Shared middleware that validates JWT + RBAC on every socket event.",
       "Heartbeat + reconnection buffer to restore presence seamlessly.",
     ],
-    github: "https://github.com/noraizrana",
+    github: "https://github.com/NoraizRana/collaborink-platform",
     live: "#",
   },
   {
@@ -49,8 +51,9 @@ export const projects: Project[] = [
     category: "AI+NLP",
     stack: ["Python", "TF-IDF", "MERN", "Web Speech API"],
     description:
-      "Final year project — AI Q&A engine for algorithms. Custom NLP, 15000 Q&A entries, voice input support.",
+      "Final year project — AI Q&A engine for algorithms. Custom NLP, 228 entries, voice input support.",
     badge: "FYP",
+    thumbnail: "/projects/aoa-teaching-assistant.png",
     overview:
       "The AoA Virtual Teaching Assistant answers algorithm questions using a custom TF-IDF NLP engine trained on 228 curated Q&A entries. It supports voice input via the Web Speech API and surfaces ranked answers in real time.",
     challenges: [
@@ -59,11 +62,11 @@ export const projects: Project[] = [
       "Serving the NLP engine alongside a MERN stack.",
     ],
     solutions: [
-      "Hand-tuned TF-IDF vectorizer with cosine ranking over 15000 entries.",
+      "Hand-tuned TF-IDF vectorizer with cosine ranking over 228 entries.",
       "Transcript normalization + fuzzy matching before scoring.",
       "Python microservice exposed through an Express gateway.",
     ],
-    github: "https://github.com/noraizrana",
+    github: "https://github.com/NoraizRana/aoa-virtual-assistant",
     live: "#",
   },
   {
@@ -74,6 +77,7 @@ export const projects: Project[] = [
     category: "FRONTEND",
     stack: ["React", "Exchange Rate API", "TailwindCSS"],
     description: "Real-time multi-currency conversion tool.",
+    thumbnail: "/projects/accurates.png",
     overview:
       "Accurates is a snappy currency conversion tool that pulls live exchange rates and converts across multiple currencies instantly, with a clean responsive interface.",
     challenges: [
@@ -84,7 +88,7 @@ export const projects: Project[] = [
       "Debounced input + cached rate snapshots.",
       "Searchable currency selector with sensible defaults.",
     ],
-    github: "https://github.com/noraizrana",
+    github: "https://github.com/NoraizRana/AccuRates-A-Currency-Converter-App",
     live: "#",
   },
   {
@@ -95,6 +99,7 @@ export const projects: Project[] = [
     category: "FRONTEND",
     stack: ["HTML", "CSS", "JavaScript"],
     description: "First iteration. Pure vanilla, fully responsive.",
+    thumbnail: "/projects/portfolio-v1.png",
     overview:
       "The first iteration of my personal portfolio, built with pure vanilla HTML, CSS, and JavaScript. Fully responsive and hand-crafted with no frameworks.",
     challenges: [
@@ -105,7 +110,7 @@ export const projects: Project[] = [
       "Mobile-first CSS with custom media queries.",
       "Modular JS with clear separation of concerns.",
     ],
-    github: "https://github.com/noraizrana",
+    github: "https://github.com/NoraizRana/Noraiz-Portfolio",
     live: "#",
   },
 ]

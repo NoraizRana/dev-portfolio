@@ -36,10 +36,15 @@ export default function ProjectRow({ project, onClick }: ProjectRowProps) {
         </p>
       </div>
 
-      <div className="hidden h-28 w-48 items-end justify-start border border-line bg-gradient-to-br from-surface-2 to-bg p-3 lg:flex">
-        <span className="font-condensed text-sm uppercase tracking-wide text-text-muted">
-          {project.title}
-        </span>
+      {/* Thumbnail — real image with grayscale-to-color hover reveal */}
+      <div className="hidden h-28 w-48 overflow-hidden border border-line bg-surface-2 lg:block">
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+        />
       </div>
 
       <IconArrowUpRight

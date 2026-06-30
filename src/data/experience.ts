@@ -7,13 +7,13 @@ export interface ExperienceRow {
 
 export const experience: ExperienceRow[] = [
   {
-    period: "2024–PRESENT",
+    period: "2025–PRESENT",
     company: "Steganox AI",
     role: "AI-Assisted Web Developer",
-    achievement: "Building AI-integrated client products with React + Node.js.",
+    achievement: "Building AI-integrated client products with React + Node.js + MongoDB.",
   },
   {
-    period: "2023",
+    period: "2025(4 months)",
     company: "AppVerse Technologies",
     role: "Frontend Developer Intern",
     achievement: "Shipped responsive UI components from Figma to production.",
@@ -32,6 +32,6 @@ export const education: EducationRow[] = [
     period: "2022–2026",
     institution: "University of Sargodha",
     degree: "BS Information Technology",
-    detail: "GPA: 3.4/4.0",
+    detail: "GPA: 3.36/4.0",
   },
 ]

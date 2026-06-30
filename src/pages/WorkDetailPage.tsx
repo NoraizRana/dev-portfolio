@@ -50,6 +50,18 @@ export default function WorkDetailPage() {
         ))}
       </div>
 
+      {/* Hero thumbnail */}
+      <div className="relative mt-10 aspect-video w-full max-w-4xl overflow-hidden border border-line bg-surface-2">
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          loading="eager"
+          decoding="async"
+          className="h-full w-full object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent" />
+      </div>
+
       <div className="my-10 h-px w-full bg-neon-green opacity-40" />
 
       <p className="max-w-3xl font-sans text-lg leading-relaxed text-text-off">{project.overview}</p>
