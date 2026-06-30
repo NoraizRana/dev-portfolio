@@ -98,7 +98,7 @@ function ProfileFrame() {
 
         {/* Actual photo — no filter, no grayscale, no color change */}
         <img
-          src="/profile.jpg"
+          src="/profile.png"
           alt="Noraiz Rana"
           className="w-full h-full object-cover object-top relative z-0"
         />
@@ -146,7 +146,7 @@ function ProfileFrame() {
         transition={{ delay: 1.5 }}
         className="absolute -left-3 bottom-16 border border-line bg-bg px-3 py-2 z-30 hidden sm:block"
       >
-        <p className="font-display text-2xl text-neon-green leading-none">2+</p>
+        <p className="font-display text-2xl text-neon-green leading-none">3+</p>
         <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mt-0.5">Yrs</p>
       </motion.div>
     </motion.div>
@@ -168,6 +168,11 @@ export default function Hero() {
         el.style.transform = `translate3d(${x}px, ${y}px, 0)`
       })
     }
+    // Skip the parallax effect entirely on touch devices — there's no
+    // mouse to track, and it just wastes battery/CPU.
+    const isTouch = window.matchMedia("(pointer: coarse)").matches
+    if (isTouch) return
+
     window.addEventListener("mousemove", onMove, { passive: true })
     return () => {
       window.removeEventListener("mousemove", onMove)
