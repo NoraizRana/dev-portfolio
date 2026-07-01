@@ -13,10 +13,10 @@ export const experience: ExperienceRow[] = [
     achievement: "Building AI-integrated client products with React + Node.js.",
   },
   {
-    period: "2025(4 months)",
+    period: "2024(4 months)",
     company: "AppVerse Technologies",
     role: "Frontend Developer Intern",
-    achievement: "Shipped responsive UI components from Figma to production.",
+    achievement: "Shipped responsive UI components with React to production.",
   },
 ]
 

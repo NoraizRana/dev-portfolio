@@ -41,7 +41,7 @@ export default function Education() {
           AoA Virtual Teaching Assistant
         </h3>
         <p className="mt-2 font-mono text-sm text-text-off">
-          TF-IDF NLP · MERN Stack · Web Speech API · 228 Q&amp;A entries
+          TF-IDF NLP · MERN Stack · Web Speech API · 15000+ Q&amp;A entries
         </p>
         <p className="mt-2 font-sans text-sm text-text-muted">
           Supervisor: Dr. Khalid Mehmood Aamir

@@ -51,7 +51,7 @@ export const projects: Project[] = [
     category: "AI+NLP",
     stack: ["Python", "TF-IDF", "MERN", "Web Speech API"],
     description:
-      "Final year project — AI Q&A engine for algorithms. Custom NLP, 228 entries, voice input support.",
+      "Final year project — AI Q&A engine for algorithms. Custom NLP, 15000+ entries, voice input support.",
     badge: "FYP",
     thumbnail: "/projects/aoa-teaching-assistant.png",
     overview:
