@@ -14,7 +14,7 @@ const posts = [
     date: "2025.11.03",
     title: "Real-Time Collaboration with Socket.io and RBAC",
     excerpt:
-      "Lessons from CollaborInk: keeping concurrent edits in sync while enforcing role-based access at the socket layer.",
+      "Lessons from CollaborInk: keeping concurrent edits in sync while enforcing RBAC at the socket layer.",
     tag: "MERN",
   },
 ]
