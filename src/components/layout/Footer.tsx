@@ -8,7 +8,7 @@ export default function Footer() {
           <span className="font-mono text-xs text-text-muted">2025</span>
         </div>
         <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-          Designed &amp; built by Noraiz Rana
+          Designed &amp; built by Aiz
         </p>
       </div>
     </footer>
