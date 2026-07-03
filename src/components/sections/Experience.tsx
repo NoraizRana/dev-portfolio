@@ -27,7 +27,7 @@ export default function Experience() {
       </div>
 
       <p className="mt-12 max-w-3xl font-serif text-2xl italic leading-snug text-text-off md:text-3xl">
-        Every line of code at these companies was a real product, real deadline, real user.
+        Every line of code at these companies was a real product, real deadline, real user and much more.
       </p>
     </section>
   )
