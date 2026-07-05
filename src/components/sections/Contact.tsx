@@ -28,21 +28,50 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) })
 
-  const onSubmit = async (data: FormData) => {
-    // Frontend stub — simulate a backend round-trip.
-    await new Promise((r) => setTimeout(r, 900))
-    console.log("[v0] Contact form submitted:", data)
+ const onSubmit = async (data: FormData) => {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) {
+      throw new Error(result.error || "Failed to send email");
+    }
+
     confetti({
       particleCount: 120,
       spread: 70,
       origin: { y: 0.6 },
       colors: ["#39ff14", "#ff2d78", "#ffd60a"],
-    })
+    });
+
     toast.success("Message sent. I'll be in touch.", {
-      style: { background: "#111", color: "#39ff14", border: "1px solid #39ff14", borderRadius: 0 },
-    })
-    reset()
+      style: {
+        background: "#111",
+        color: "#39ff14",
+        border: "1px solid #39ff14",
+        borderRadius: 0,
+      },
+    });
+
+    reset();
+  } catch (err) {
+    console.error(err);
+
+    toast.error("Failed to send message.", {
+      style: {
+        background: "#111",
+        color: "#ff4d4f",
+      },
+    });
   }
+};
 
   const inputClass =
     "w-full border-b border-line bg-transparent py-3 font-sans text-text-white outline-none transition-colors focus:border-neon-green"
