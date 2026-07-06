@@ -51,7 +51,7 @@ export default function Contact() {
       colors: ["#39ff14", "#ff2d78", "#ffd60a"],
     });
 
-    toast.success("Message sent. I'll be in touch.", {
+    toast.success("Message sent. I'll be in touch. Thank You.", {
       style: {
         background: "#111",
         color: "#39ff14",
