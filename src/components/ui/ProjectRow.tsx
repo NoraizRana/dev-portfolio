@@ -41,6 +41,8 @@ export default function ProjectRow({ project, onClick }: ProjectRowProps) {
         <img
           src={project.thumbnail}
           alt={project.title}
+          width={project.thumbnailWidth}
+          height={project.thumbnailHeight}
           loading="lazy"
           decoding="async"
           className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"

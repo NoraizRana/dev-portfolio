@@ -10,6 +10,8 @@ export interface Project {
   description: string
   badge?: string
   thumbnail: string
+  thumbnailWidth: number
+  thumbnailHeight: number
   overview: string
   challenges: string[]
   solutions: string[]
@@ -27,7 +29,9 @@ export const projects: Project[] = [
     stack: ["MERN", "Socket.io", "JWT", "RBAC"],
     description:
       "Real-time collaboration platform with live editing, role-based access, and instant sync.",
-    thumbnail: "/projects/collaborink.png",
+    thumbnail: "/projects/collaborink.webp",
+    thumbnailWidth: 1672,
+    thumbnailHeight: 941,
     overview:
       "CollaborInk is a production-grade real-time collaboration platform that lets teams co-author documents with sub-100ms sync. It implements granular role-based access control and JWT-secured sessions across a horizontally scalable Socket.io layer.",
     challenges: [
@@ -53,7 +57,9 @@ export const projects: Project[] = [
     description:
       "Final year project — AI Q&A engine for algorithms. Custom NLP, 15000+ entries, voice input support.",
     badge: "FYP",
-    thumbnail: "/projects/aoa-teaching-assistant.png",
+    thumbnail: "/projects/aoa-teaching-assistant.webp",
+    thumbnailWidth: 1672,
+    thumbnailHeight: 941,
     overview:
       "The AoA Virtual Teaching Assistant answers algorithm questions using a custom TF-IDF NLP engine trained on 228 curated Q&A entries. It supports voice input via the Web Speech API and surfaces ranked answers in real time.",
     challenges: [
@@ -77,7 +83,9 @@ export const projects: Project[] = [
     category: "FRONTEND",
     stack: ["React", "Exchange Rate API", "TailwindCSS"],
     description: "Real-time multi-currency conversion tool.",
-    thumbnail: "/projects/accurates.png",
+    thumbnail: "/projects/accurates.webp",
+    thumbnailWidth: 1672,
+    thumbnailHeight: 941,
     overview:
       "Accurates is a snappy currency conversion tool that pulls live exchange rates and converts across multiple currencies instantly, with a clean responsive interface.",
     challenges: [
@@ -99,7 +107,9 @@ export const projects: Project[] = [
     category: "FRONTEND",
     stack: ["HTML", "CSS", "JavaScript"],
     description: "First iteration. Pure vanilla, fully responsive.",
-    thumbnail: "/projects/portfolio-v1.png",
+    thumbnail: "/projects/portfolio-v1.webp",
+    thumbnailWidth: 1693,
+    thumbnailHeight: 929,
     overview:
       "The first iteration of my personal portfolio, built with pure vanilla HTML, CSS, and JavaScript. Fully responsive and hand-crafted with no frameworks.",
     challenges: [

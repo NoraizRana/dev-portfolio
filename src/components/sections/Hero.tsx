@@ -98,8 +98,11 @@ function ProfileFrame() {
 
         {/* Actual photo — no filter, no grayscale, no color change */}
         <img
-          src="/profile.png"
+          src="/profile.webp"
           alt="Noraiz Rana"
+          width={640}
+          height={640}
+          fetchPriority="high"
           className="w-full h-full object-cover object-top relative z-0"
         />
 
@@ -227,6 +230,8 @@ export default function Hero() {
               <div className="font-condensed text-2xl text-text-white md:text-[28px]">
                 <TypeAnimation
                   sequence={[
+                    "Full Stack Engineer",
+                    2500,
                     "Full-Stack MERN Developer",
                     2000,
                     "AI Integration Specialist",

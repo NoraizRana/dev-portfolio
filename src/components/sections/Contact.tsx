@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import toast from "react-hot-toast"
-import confetti from "canvas-confetti"
 import { IconArrowRight, IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp } from "@tabler/icons-react"
 
 const schema = z.object({
@@ -44,6 +43,7 @@ export default function Contact() {
       throw new Error(result.error || "Failed to send email");
     }
 
+    const { default: confetti } = await import("canvas-confetti");
     confetti({
       particleCount: 120,
       spread: 70,

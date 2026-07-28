@@ -9,7 +9,7 @@ export const experience: ExperienceRow[] = [
   {
     period: "2025–PRESENT",
     company: "Steganox AI",
-    role: "AI-Assisted Web Developer",
+    role: "Full Stack Engineer",
     achievement: "Building AI-integrated client products with React + Node.js.",
   },
   {
