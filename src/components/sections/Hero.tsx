@@ -232,9 +232,9 @@ export default function Hero() {
                   sequence={[
                     "Full Stack Engineer",
                     2500,
-                    "Full-Stack MERN Developer",
-                    2000,
                     "AI Integration Specialist",
+                    2000,
+                    "Full-Stack MERN Developer",
                     2000,
                     "Real-Time Systems Builder",
                     2000,
@@ -252,7 +252,7 @@ export default function Hero() {
             </div>
             <div className="md:pl-8">
               <p className="font-sans text-sm leading-relaxed text-text-muted">
-                Building production-grade applications from Sargodha, PK. Currently at Steganox AI.
+                Building production-grade applications from Lahore, PK. Currently at Steganox.
                 Fresh grad, serious craft.
               </p>
               <p className="mt-4 font-mono text-xs uppercase tracking-wider text-neon-green">

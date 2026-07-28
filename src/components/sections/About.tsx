@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import SectionHeader from "@/components/ui/SectionHeader"
+import StatsRow from "@/components/ui/StatsRow"
+import { IconArrowRight } from "@tabler/icons-react"
 
 function easeOutExpo(t: number): number {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
@@ -27,9 +30,6 @@ function useCountUp(end: number, decimals: number, durationSecs: number, active:
 
   return value.toFixed(decimals)
 }
-import SectionHeader from "@/components/ui/SectionHeader"
-import StatsRow from "@/components/ui/StatsRow"
-import { IconArrowRight } from "@tabler/icons-react"
 
 export default function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.4 })

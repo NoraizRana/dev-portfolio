@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import Hero from "@/components/sections/Hero"
 import Marquee from "@/components/sections/Marquee"
 
@@ -16,6 +16,12 @@ function SectionFallback() {
 }
 
 export default function HomePage() {
+  useEffect(() => {
+    const prefetch = () => import("@/components/sections/Contact")
+    if ("requestIdleCallback" in window) requestIdleCallback(prefetch)
+    else setTimeout(prefetch, 2000)
+  }, [])
+
   return (
     <>
       {/* Above the fold — load immediately */}
@@ -38,7 +44,7 @@ export default function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <Education />
       </Suspense>
-      <Suspense fallback={<SectionFallback />}>
+      <Suspense fallback={<div className="min-h-[64rem]" />}>
         <Contact />
       </Suspense>
     </>
