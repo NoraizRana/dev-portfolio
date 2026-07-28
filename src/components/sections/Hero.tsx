@@ -102,7 +102,7 @@ function ProfileFrame() {
           alt="Noraiz Rana"
           width={640}
           height={640}
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           className="w-full h-full object-cover object-top relative z-0"
         />
 
