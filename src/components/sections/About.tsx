@@ -51,7 +51,7 @@ export default function About() {
           <div className="mt-10 space-y-6 font-sans text-base leading-relaxed text-text-off">
             <p>BS IT from University of Sargodha, class of 2026.</p>
             <p>
-              At Steganox AI, I build real products — not demos. My FYP (AoA Virtual Teaching
+              At Steganox, I build real products — not demos. My FYP (AoA Virtual Teaching
               Assistant) runs a custom TF-IDF NLP engine with 15000+ Q&amp;A entries on algorithms.
             </p>
             <p>
