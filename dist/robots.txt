@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://noraizrana-portfolio.vercel.app/sitemap.xml
