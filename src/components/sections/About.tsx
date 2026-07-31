@@ -82,7 +82,7 @@ export default function About() {
 
         <div ref={ref}>
           <div className="text-right">
-            <span className="font-display text-[120px] leading-none text-neon-green md:text-[160px]">
+            <span className="font-display text-[90px] leading-none text-neon-green md:text-[120px]">
               {cgpa}
             </span>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-text-muted">
