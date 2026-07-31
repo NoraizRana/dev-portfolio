@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 export default function SectionHeader({ number, title }: SectionHeaderProps) {
   return (
     <div className="relative mb-12 md:mb-16">
-      <span className="ghost-number absolute -left-2 -top-24 text-[120px] md:-top-40 md:text-[200px]">
+      <span aria-hidden="true" className="ghost-number absolute -left-2 -top-24 text-[120px] md:-top-40 md:text-[200px]">
         {number}
       </span>
       <div className="relative z-10 flex items-baseline gap-4">

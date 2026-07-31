@@ -17,6 +17,9 @@ type FormData = z.infer<typeof schema>
 const inputClass =
   "w-full border-b border-line bg-transparent py-3 font-sans text-text-white outline-none transition-colors focus:border-neon-green"
 
+const labelClass = "font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted"
+const errorClass = "mt-1 font-mono text-xs text-neon-pink"
+
 export default function ContactForm() {
   const {
     register,
@@ -61,7 +64,9 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+      {/* Honeypot — spam protection. DO NOT MODIFY: must stay hidden, unlabelled,
+          out of tab order, and aria-hidden. Real users never fill this. */}
       <div style={{ display: "none" }} aria-hidden="true">
         <input
           {...register("website")}
@@ -69,39 +74,89 @@ export default function ContactForm() {
           autoComplete="off"
         />
       </div>
+
       <div>
-        <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
+        <label htmlFor="contact-name" className={labelClass}>
           Name
         </label>
-        <input className={inputClass} {...register("name")} placeholder="Your name" />
-        {errors.name && <p className="mt-1 font-mono text-xs text-neon-pink">{errors.name.message}</p>}
+        <input
+          id="contact-name"
+          className={inputClass}
+          placeholder="Your name"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.name}
+          aria-describedby="contact-name-error"
+          {...register("name")}
+        />
+        <p
+          id="contact-name-error"
+          aria-live="polite"
+          className={errors.name ? errorClass : "sr-only"}
+        >
+          {errors.name?.message ?? ""}
+        </p>
       </div>
+
       <div>
-        <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
+        <label htmlFor="contact-email" className={labelClass}>
           Email
         </label>
-        <input className={inputClass} {...register("email")} placeholder="you@email.com" />
-        {errors.email && <p className="mt-1 font-mono text-xs text-neon-pink">{errors.email.message}</p>}
+        <input
+          id="contact-email"
+          className={inputClass}
+          placeholder="you@email.com"
+          type="email"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.email}
+          aria-describedby="contact-email-error"
+          {...register("email")}
+        />
+        <p
+          id="contact-email-error"
+          aria-live="polite"
+          className={errors.email ? errorClass : "sr-only"}
+        >
+          {errors.email?.message ?? ""}
+        </p>
       </div>
+
       <div>
-        <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
+        <label htmlFor="contact-budget" className={labelClass}>
           Budget (optional)
         </label>
-        <input className={inputClass} {...register("budget")} placeholder="$" />
+        <input
+          id="contact-budget"
+          className={inputClass}
+          placeholder="$"
+          {...register("budget")}
+        />
       </div>
+
       <div>
-        <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
+        <label htmlFor="contact-message" className={labelClass}>
           Message
         </label>
         <textarea
+          id="contact-message"
           className={inputClass + " min-h-[120px] resize-y"}
-          {...register("message")}
           placeholder="What are we building?"
+          required
+          aria-required="true"
+          aria-invalid={!!errors.message}
+          aria-describedby="contact-message-error"
+          {...register("message")}
         />
-        {errors.message && (
-          <p className="mt-1 font-mono text-xs text-neon-pink">{errors.message.message}</p>
-        )}
+        <p
+          id="contact-message-error"
+          aria-live="polite"
+          className={errors.message ? errorClass : "sr-only"}
+        >
+          {errors.message?.message ?? ""}
+        </p>
       </div>
+
       <button
         type="submit"
         disabled={isSubmitting}

@@ -49,9 +49,9 @@ export default function WorkPage() {
                 className="text-text-off transition-transform group-hover:rotate-45 group-hover:text-neon-green"
               />
             </div>
-            <h3 className="mt-4 font-display text-3xl uppercase text-text-white group-hover:text-neon-green">
+            <h2 className="mt-4 font-display text-3xl uppercase text-text-white group-hover:text-neon-green">
               {p.title}
-            </h3>
+            </h2>
             <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-text-muted">
               {p.stack.join(" · ")}
             </p>

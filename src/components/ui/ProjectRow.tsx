@@ -40,7 +40,8 @@ export default function ProjectRow({ project, onClick }: ProjectRowProps) {
       <div className="hidden h-28 w-48 overflow-hidden border border-line bg-surface-2 lg:block">
         <img
           src={project.thumbnailSmall}
-          alt={project.title}
+          alt=""
+          aria-hidden="true"
           width={project.thumbnailSmallWidth}
           height={project.thumbnailSmallHeight}
           loading="lazy"

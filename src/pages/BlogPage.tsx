@@ -29,7 +29,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.id}
-            className="group grid cursor-pointer grid-cols-1 gap-4 border-b border-line py-10 transition-colors hover:bg-surface-1 md:grid-cols-[160px_1fr_auto] md:gap-8"
+            className="group grid grid-cols-1 gap-4 border-b border-line py-10 transition-colors hover:bg-surface-1 md:grid-cols-[160px_1fr_auto] md:gap-8"
           >
             <div className="flex flex-col gap-2">
               <span className="font-mono text-xs uppercase tracking-wider text-text-muted">
