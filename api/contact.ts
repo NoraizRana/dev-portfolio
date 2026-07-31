@@ -32,6 +32,7 @@ export default async function handler(
 
   // Honeypot: bots fill hidden fields, real users never do
   if (website) {
+    console.log(`[honeypot] trip — name="${name}" email="${email}" website="${website}"`);
     return res.status(200).json({ success: true });
   }
 
