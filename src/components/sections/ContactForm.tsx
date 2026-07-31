@@ -9,7 +9,7 @@ const schema = z.object({
   email: z.string().email("Valid email required"),
   budget: z.string().optional(),
   message: z.string().min(10, "Tell me a bit more"),
-  honeypot: z.string().optional(),
+  website: z.string().optional(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -64,7 +64,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div style={{ display: "none" }} aria-hidden="true">
         <input
-          {...register("honeypot")}
+          {...register("website")}
           tabIndex={-1}
           autoComplete="off"
         />

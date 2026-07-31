@@ -28,10 +28,10 @@ export default async function handler(
     return res.status(405).json({ success: false, error: "Method not allowed" });
   }
 
-  const { name, email, budget, message, honeypot } = req.body ?? {};
+  const { name, email, budget, message, website } = req.body ?? {};
 
   // Honeypot: bots fill hidden fields, real users never do
-  if (honeypot) {
+  if (website) {
     return res.status(200).json({ success: true });
   }
 
