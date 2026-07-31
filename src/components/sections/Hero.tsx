@@ -98,8 +98,11 @@ function ProfileFrame() {
 
         {/* Actual photo — no filter, no grayscale, no color change */}
         <img
-          src="/profile.png"
+          src="/profile.webp"
           alt="Noraiz Rana"
+          width={640}
+          height={640}
+          {...({ fetchpriority: "high" } as Record<string, string>)}
           className="w-full h-full object-cover object-top relative z-0"
         />
 
@@ -227,9 +230,11 @@ export default function Hero() {
               <div className="font-condensed text-2xl text-text-white md:text-[28px]">
                 <TypeAnimation
                   sequence={[
-                    "Full-Stack MERN Developer",
-                    2000,
+                    "Full Stack Engineer",
+                    2500,
                     "AI Integration Specialist",
+                    2000,
+                    "Full-Stack MERN Developer",
                     2000,
                     "Real-Time Systems Builder",
                     2000,
@@ -247,7 +252,7 @@ export default function Hero() {
             </div>
             <div className="md:pl-8">
               <p className="font-sans text-sm leading-relaxed text-text-muted">
-                Building production-grade applications from Sargodha, PK. Currently at Steganox AI.
+                Building production-grade applications from Lahore, PK. Currently at Steganox.
                 Fresh grad, serious craft.
               </p>
               <p className="mt-4 font-mono text-xs uppercase tracking-wider text-neon-green">

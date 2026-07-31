@@ -12,7 +12,7 @@ const Education  = lazy(() => import("@/components/sections/Education"))
 const Contact    = lazy(() => import("@/components/sections/Contact"))
 
 function SectionFallback() {
-  return <div className="h-24" /> // placeholder height while loading
+  return <div className="h-24" />
 }
 
 export default function HomePage() {
@@ -38,6 +38,7 @@ export default function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <Education />
       </Suspense>
+      {/* Contact section always renders; its form column is lazy inside Contact.tsx */}
       <Suspense fallback={<SectionFallback />}>
         <Contact />
       </Suspense>

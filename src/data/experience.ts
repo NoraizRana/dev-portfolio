@@ -8,8 +8,8 @@ export interface ExperienceRow {
 export const experience: ExperienceRow[] = [
   {
     period: "2025–PRESENT",
-    company: "Steganox AI",
-    role: "AI-Assisted Web Developer",
+    company: "Steganox",
+    role: "Full Stack Engineer",
     achievement: "Building AI-integrated client products with React + Node.js.",
   },
   {

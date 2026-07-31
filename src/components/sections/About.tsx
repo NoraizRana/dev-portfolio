@@ -1,12 +1,39 @@
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
-import CountUp from "react-countup"
 import { useInView } from "react-intersection-observer"
 import SectionHeader from "@/components/ui/SectionHeader"
 import StatsRow from "@/components/ui/StatsRow"
 import { IconArrowRight } from "@tabler/icons-react"
 
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+}
+
+function useCountUp(end: number, decimals: number, durationSecs: number, active: boolean): string {
+  const [value, setValue] = useState(0)
+  const rafRef = useRef(0)
+  const startRef = useRef(0)
+
+  useEffect(() => {
+    if (!active) return
+    startRef.current = 0
+    const step = (ts: number) => {
+      if (startRef.current === 0) startRef.current = ts
+      const progress = Math.min((ts - startRef.current) / (durationSecs * 1000), 1)
+      setValue(easeOutExpo(progress) * end)
+      if (progress < 1) rafRef.current = requestAnimationFrame(step)
+      else setValue(end)
+    }
+    rafRef.current = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [active, end, durationSecs])
+
+  return value.toFixed(decimals)
+}
+
 export default function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.4 })
+  const cgpa = useCountUp(3.36, 1, 1.6, inView)
 
   return (
     <section id="about" className="section-contain relative px-[8%] py-24">
@@ -24,7 +51,7 @@ export default function About() {
           <div className="mt-10 space-y-6 font-sans text-base leading-relaxed text-text-off">
             <p>BS IT from University of Sargodha, class of 2026.</p>
             <p>
-              At Steganox AI, I build real products — not demos. My FYP (AoA Virtual Teaching
+              At Steganox, I build real products — not demos. My FYP (AoA Virtual Teaching
               Assistant) runs a custom TF-IDF NLP engine with 15000+ Q&amp;A entries on algorithms.
             </p>
             <p>
@@ -56,7 +83,7 @@ export default function About() {
         <div ref={ref}>
           <div className="text-right">
             <span className="font-display text-[120px] leading-none text-neon-green md:text-[160px]">
-              {inView ? <CountUp end={3.36} decimals={1} duration={1.6} /> : "0.0"}
+              {cgpa}
             </span>
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-text-muted">
               CGPA / 4.0
@@ -73,7 +100,7 @@ export default function About() {
             <StatsRow label="Projects Built" value="10+" />
             <StatsRow label="Internships" value="2" />
             <StatsRow label="Graduation Year" value="2026" />
-            <StatsRow label="Location" value="Sargodha, PK" />
+            <StatsRow label="Location" value="Lahore, PK" />
           </motion.div>
         </div>
       </div>

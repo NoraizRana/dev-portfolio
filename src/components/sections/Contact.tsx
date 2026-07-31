@@ -1,80 +1,32 @@
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import toast from "react-hot-toast"
-import confetti from "canvas-confetti"
-import { IconArrowRight, IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp } from "@tabler/icons-react"
+import { lazy, Suspense, useEffect, useRef, useState } from "react"
+import { IconArrowRight } from "@tabler/icons-react"
+import { EMAIL, SOCIALS } from "@/data/contact"
 
-const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email required"),
-  budget: z.string().optional(),
-  message: z.string().min(10, "Tell me a bit more"),
-})
+const ContactForm = lazy(() => import("./ContactForm"))
 
-type FormData = z.infer<typeof schema>
-
-const socials = [
-  { label: "LinkedIn", icon: IconBrandLinkedin, href: "https://www.linkedin.com/in/noraiz-rana-291277344/" },
-  { label: "GitHub", icon: IconBrandGithub, href: "https://github.com/noraizrana" },
-  { label: "WhatsApp", icon: IconBrandWhatsapp, href: "https://wa.me/+923495880361" },
-]
+// Measured rendered height of ContactForm at desktop width — keeps layout stable
+// while the form chunk loads.  Re-measure if form fields change.
+const FORM_PH = "575px"
 
 export default function Contact() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) })
+  const sentinelRef = useRef<HTMLDivElement>(null)
+  const [mountForm, setMountForm] = useState(false)
 
- const onSubmit = async (data: FormData) => {
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  useEffect(() => {
+    const el = sentinelRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMountForm(true)
+          observer.disconnect()
+        }
       },
-      body: JSON.stringify(data),
-    });
-
-    const result = await res.json();
-
-    if (!res.ok) {
-      throw new Error(result.error || "Failed to send email");
-    }
-
-    confetti({
-      particleCount: 120,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ["#39ff14", "#ff2d78", "#ffd60a"],
-    });
-
-    toast.success("Message sent. I'll be in touch. Thank You.", {
-      style: {
-        background: "#111",
-        color: "#39ff14",
-        border: "1px solid #39ff14",
-        borderRadius: 0,
-      },
-    });
-
-    reset();
-  } catch (err) {
-    console.error(err);
-
-    toast.error("Failed to send message.", {
-      style: {
-        background: "#111",
-        color: "#ff4d4f",
-      },
-    });
-  }
-};
-
-  const inputClass =
-    "w-full border-b border-line bg-transparent py-3 font-sans text-text-white outline-none transition-colors focus:border-neon-green"
+      { rootMargin: "100% 0px" },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section id="contact" className="section-contain relative px-[8%] py-24">
@@ -90,60 +42,29 @@ export default function Contact() {
       </h2>
 
       <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-20">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div>
-            <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-              Name
-            </label>
-            <input className={inputClass} {...register("name")} placeholder="Your name" />
-            {errors.name && <p className="mt-1 font-mono text-xs text-neon-pink">{errors.name.message}</p>}
-          </div>
-          <div>
-            <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-              Email
-            </label>
-            <input className={inputClass} {...register("email")} placeholder="you@email.com" />
-            {errors.email && <p className="mt-1 font-mono text-xs text-neon-pink">{errors.email.message}</p>}
-          </div>
-          <div>
-            <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-              Budget (optional)
-            </label>
-            <input className={inputClass} {...register("budget")} placeholder="$" />
-          </div>
-          <div>
-            <label className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-              Message
-            </label>
-            <textarea
-              className={inputClass + " min-h-[120px] resize-y"}
-              {...register("message")}
-              placeholder="What are we building?"
-            />
-            {errors.message && (
-              <p className="mt-1 font-mono text-xs text-neon-pink">{errors.message.message}</p>
-            )}
-          </div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="flex w-full items-center justify-center gap-2 border border-neon-green bg-transparent py-4 font-display text-lg uppercase tracking-wide text-neon-green transition-colors duration-100 hover:bg-neon-green hover:text-black disabled:opacity-50"
-          >
-            {isSubmitting ? "Sending..." : "Send it"}
-            <IconArrowRight size={20} />
-          </button>
-        </form>
+        {/* Form column — lazy-loaded; rest of section is always in DOM */}
+        <div>
+          <div ref={sentinelRef} aria-hidden="true" />
+          {mountForm ? (
+            <Suspense fallback={<div style={{ minHeight: FORM_PH }} />}>
+              <ContactForm />
+            </Suspense>
+          ) : (
+            <div style={{ minHeight: FORM_PH }} />
+          )}
+        </div>
 
+        {/* Info column — always rendered for crawlers, find-in-page, screen readers */}
         <div>
           <a
-            href="mailto:noraizrana389@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="block font-display text-3xl text-text-white transition-colors hover:text-neon-green md:text-4xl"
           >
-            → noraizrana389@gmail.com
+            → {EMAIL}
           </a>
 
           <ul className="mt-10 space-y-4">
-            {socials.map((s) => (
+            {SOCIALS.map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
@@ -168,7 +89,7 @@ export default function Contact() {
               Open to work
             </span>
           </div>
-          <p className="mt-3 font-mono text-xs text-text-muted">Sargodha, Pakistan</p>
+          <p className="mt-3 font-mono text-xs text-text-muted">Lahore, Pakistan</p>
         </div>
       </div>
     </section>

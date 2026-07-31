@@ -39,8 +39,10 @@ export default function ProjectRow({ project, onClick }: ProjectRowProps) {
       {/* Thumbnail — real image with grayscale-to-color hover reveal */}
       <div className="hidden h-28 w-48 overflow-hidden border border-line bg-surface-2 lg:block">
         <img
-          src={project.thumbnail}
+          src={project.thumbnailSmall}
           alt={project.title}
+          width={project.thumbnailSmallWidth}
+          height={project.thumbnailSmallHeight}
           loading="lazy"
           decoding="async"
           className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"

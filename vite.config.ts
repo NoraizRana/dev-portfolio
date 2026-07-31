@@ -1,9 +1,10 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import { fileURLToPath, URL } from "node:url"
+import { visualizer } from "rollup-plugin-visualizer"
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), visualizer({ filename: "stats.html", gzip: true })],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -27,7 +28,6 @@ export default defineConfig({
         manualChunks: {
           "vendor-react": ["react", "react-dom", "react-router-dom"],
           "vendor-motion": ["framer-motion"],
-          "vendor-gsap": ["gsap"],
           "vendor-lenis": ["lenis"],
           "vendor-forms": ["react-hook-form", "@hookform/resolvers", "zod"],
           "vendor-ui": [

@@ -55,6 +55,8 @@ export default function WorkDetailPage() {
         <img
           src={project.thumbnail}
           alt={project.title}
+          width={project.thumbnailWidth}
+          height={project.thumbnailHeight}
           loading="eager"
           decoding="async"
           className="h-full w-full object-cover"
