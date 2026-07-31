@@ -13,15 +13,17 @@ export default function SectionHeader({ number, title }: SectionHeaderProps) {
       </span>
       <div className="relative z-10 flex items-baseline gap-4">
         <span className="font-mono text-sm text-neon-green">{number}</span>
-        <motion.h2
-          initial={{ clipPath: "inset(100% 0 0 0)" }}
-          whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          className="font-condensed text-4xl font-bold uppercase leading-none text-text-white md:text-6xl"
-        >
-          {title}
-        </motion.h2>
+        <div className="overflow-hidden">
+          <motion.h2
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+            className="font-condensed text-4xl font-bold uppercase leading-none text-text-white md:text-6xl"
+          >
+            {title}
+          </motion.h2>
+        </div>
       </div>
       <motion.div
         initial={{ width: 0 }}
