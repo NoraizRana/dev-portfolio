@@ -100,7 +100,7 @@ export default function About() {
             <StatsRow label="Projects Built" value="10+" />
             <StatsRow label="Internships" value="2" />
             <StatsRow label="Graduation Year" value="2026" />
-            <StatsRow label="Location" value="Sargodha, PK" />
+            <StatsRow label="Location" value="Lahore, PK" />
           </motion.div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react"
+import { lazy, Suspense } from "react"
 import Hero from "@/components/sections/Hero"
 import Marquee from "@/components/sections/Marquee"
 
@@ -16,25 +16,6 @@ function SectionFallback() {
 }
 
 export default function HomePage() {
-  const sentinelRef = useRef<HTMLDivElement>(null)
-  const [mountContact, setMountContact] = useState(false)
-
-  useEffect(() => {
-    const el = sentinelRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setMountContact(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: "100% 0px" },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <>
       {/* Above the fold — load immediately */}
@@ -57,15 +38,10 @@ export default function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <Education />
       </Suspense>
-      {/* Sentinel: mount Contact only when this is ~1 viewport away */}
-      <div ref={sentinelRef} aria-hidden="true" />
-      {mountContact ? (
-        <Suspense fallback={<div className="min-h-[64rem]" />}>
-          <Contact />
-        </Suspense>
-      ) : (
-        <div className="min-h-[64rem]" />
-      )}
+      {/* Contact section always renders; its form column is lazy inside Contact.tsx */}
+      <Suspense fallback={<SectionFallback />}>
+        <Contact />
+      </Suspense>
     </>
   )
 }

@@ -98,7 +98,7 @@ app.post("/api/contact", async (req: Request, res: Response) => {
             In the meantime, feel free to check out my work on 
             <a href="https://github.com/NoraizRana" style="color: #39ff14;">GitHub</a>.
           </p>
-          <p style="color: #444; margin-top: 32px; font-size: 11px;">— Noraiz Rana · MERN Stack & AI Developer · Sargodha, PK</p>
+          <p style="color: #444; margin-top: 32px; font-size: 11px;">— Noraiz Rana · MERN Stack & AI Developer · Lahore, PK</p>
         </div>
       `,
     })
