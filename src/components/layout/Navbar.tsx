@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { IconMenu2, IconX } from "@tabler/icons-react"
+import { usePrefersReducedMotion } from "@/hooks/useMediaQuery"
+import { EMAIL, LOCATION, SOCIALS } from "@/data/contact"
 
 const NAV_LINKS = [
-  { label: "ABOUT", to: "/about" },
-  { label: "WORK", to: "/work" },
-  { label: "BLOG", to: "/blog" },
+  { label: "ABOUT",   to: "/about"   },
+  { label: "WORK",    to: "/work"    },
+  { label: "BLOG",    to: "/blog"    },
   { label: "CONTACT", to: "/contact" },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const navigate = useNavigate()
+  const navigate  = useNavigate()
+  const location  = useLocation()
+  const reduced   = usePrefersReducedMotion()
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
@@ -66,29 +70,81 @@ export default function Navbar() {
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
           >
+            {/* Top bar — logo + close (unchanged) */}
             <div className="flex items-center justify-between px-[6%] py-4">
               <span className="font-display text-xl text-text-white">NR_</span>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-text-white">
                 <IconX size={28} />
               </button>
             </div>
-            <div className="flex flex-1 flex-col justify-center gap-2 px-[6%]">
-              {NAV_LINKS.map((l, i) => (
-                <motion.div
-                  key={l.to}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.08 }}
-                >
-                  <Link
-                    to={l.to}
-                    onClick={() => setOpen(false)}
-                    className="font-display text-5xl uppercase text-text-white transition-colors hover:text-neon-green"
+
+            {/* Nav list — anchored at ~30 % from top */}
+            <nav className="mt-[20dvh] border-t border-line px-[6%]">
+              {NAV_LINKS.map((l, i) => {
+                const active = location.pathname === l.to
+                return (
+                  <motion.div
+                    key={l.to}
+                    initial={reduced ? false : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={
+                      reduced
+                        ? { duration: 0 }
+                        : { delay: 0.05 + i * 0.04, duration: 0.35, ease: [0.76, 0, 0.24, 1] }
+                    }
+                    className="border-b border-line"
                   >
-                    {l.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      to={l.to}
+                      onClick={() => setOpen(false)}
+                      className="group flex items-baseline gap-3 py-4"
+                    >
+                      <span className="w-6 font-mono text-xs text-neon-green">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-mono text-xs text-neon-green">/</span>
+                      <span
+                        className={`font-display text-5xl uppercase leading-tight transition-colors duration-150 ${
+                          active
+                            ? "text-neon-green"
+                            : "text-text-white group-hover:text-neon-green"
+                        }`}
+                      >
+                        {l.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                )
+              })}
+            </nav>
+
+            <div className="flex-1" />
+
+            {/* Meta block — separated by full-width green rule */}
+            <div className="px-[6%] pb-10">
+              <div className="mb-5 h-px w-full bg-neon-green" />
+              <a
+                href={`mailto:${EMAIL}`}
+                className="block font-mono text-xs text-text-off transition-colors hover:text-neon-green"
+              >
+                {EMAIL}
+              </a>
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                {SOCIALS.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted transition-colors hover:text-neon-green"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                {LOCATION}
+              </p>
             </div>
           </motion.div>
         )}

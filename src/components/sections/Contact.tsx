@@ -1,17 +1,12 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
-import { IconArrowRight, IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp } from "@tabler/icons-react"
+import { IconArrowRight } from "@tabler/icons-react"
+import { EMAIL, SOCIALS } from "@/data/contact"
 
 const ContactForm = lazy(() => import("./ContactForm"))
 
-const socials = [
-  { label: "LinkedIn", icon: IconBrandLinkedin, href: "https://www.linkedin.com/in/noraiz-rana-291277344/" },
-  { label: "GitHub",   icon: IconBrandGithub,   href: "https://github.com/noraizrana" },
-  { label: "WhatsApp", icon: IconBrandWhatsapp,  href: "https://wa.me/+923495880361" },
-]
-
 // Measured rendered height of ContactForm at desktop width — keeps layout stable
 // while the form chunk loads.  Re-measure if form fields change.
-const FORM_PH = "524px"
+const FORM_PH = "575px"
 
 export default function Contact() {
   const sentinelRef = useRef<HTMLDivElement>(null)
@@ -62,14 +57,14 @@ export default function Contact() {
         {/* Info column — always rendered for crawlers, find-in-page, screen readers */}
         <div>
           <a
-            href="mailto:noraizrana389@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="block font-display text-3xl text-text-white transition-colors hover:text-neon-green md:text-4xl"
           >
-            → noraizrana389@gmail.com
+            → {EMAIL}
           </a>
 
           <ul className="mt-10 space-y-4">
-            {socials.map((s) => (
+            {SOCIALS.map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
