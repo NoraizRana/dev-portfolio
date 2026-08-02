@@ -7,7 +7,6 @@ interface NeonButtonProps {
   onClick?: () => void
   variant?: "filled" | "outline"
   className?: string
-  cursor?: string
 }
 
 export default function NeonButton({
@@ -16,7 +15,6 @@ export default function NeonButton({
   onClick,
   variant = "filled",
   className,
-  cursor,
 }: NeonButtonProps) {
   const base =
     "inline-flex items-center gap-2 font-display text-base uppercase tracking-wide px-8 py-3.5 transition-colors duration-100"
@@ -29,13 +27,13 @@ export default function NeonButton({
 
   if (to) {
     return (
-      <Link to={to} className={classes} data-cursor={cursor}>
+      <Link to={to} className={classes}>
         {children}
       </Link>
     )
   }
   return (
-    <button onClick={onClick} className={classes} data-cursor={cursor}>
+    <button onClick={onClick} className={classes}>
       {children}
     </button>
   )

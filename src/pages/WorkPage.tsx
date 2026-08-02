@@ -40,7 +40,6 @@ export default function WorkPage() {
           <Link
             key={p.id}
             to={`/work/${p.slug}`}
-            data-cursor="OPEN"
             className="group border border-line bg-surface-1 p-8 transition-colors hover:border-neon-green hover:bg-surface-2"
           >
             <div className="flex items-start justify-between">

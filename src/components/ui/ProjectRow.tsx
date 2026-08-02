@@ -10,7 +10,6 @@ export default function ProjectRow({ project, onClick }: ProjectRowProps) {
   return (
     <button
       onClick={onClick}
-      data-cursor="CASE STUDY →"
       className="group relative grid w-full grid-cols-1 items-center gap-4 border-b border-line px-4 py-8 text-left transition-colors duration-150 hover:bg-surface-1 md:grid-cols-[auto_1fr_auto_auto] md:gap-8 md:py-10"
     >
       <span className="font-display text-5xl text-neon-green opacity-50 md:text-7xl">

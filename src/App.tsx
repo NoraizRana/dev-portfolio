@@ -4,7 +4,6 @@ import { AnimatePresence, MotionConfig } from "framer-motion"
 import { Toaster } from "react-hot-toast"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
-import CustomCursor from "@/components/layout/CustomCursor"
 import Preloader from "@/components/layout/Preloader"
 import ScrollProgress from "@/components/layout/ScrollProgress"
 import SmoothScroll from "@/components/layout/SmoothScroll"
@@ -49,7 +48,6 @@ export default function App() {
           Skip to content
         </a>
         <Preloader />
-        <CustomCursor />
         <ScrollProgress />
         <Navbar />
         <Toaster position="bottom-right" />
