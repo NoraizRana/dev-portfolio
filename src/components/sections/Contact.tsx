@@ -29,13 +29,13 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="section-contain relative px-[8%] py-24">
+    <section id="contact" aria-labelledby="contact-heading" className="section-contain relative px-[8%] py-24">
       <div className="relative z-10">
-        <span className="ghost-number absolute -top-20 left-0 text-[120px] md:text-[200px]">06</span>
+        <span aria-hidden="true" className="ghost-number absolute -top-20 left-0 text-[120px] md:text-[200px]">06</span>
         <span className="font-mono text-sm text-neon-green">06 / LET&apos;S WORK</span>
       </div>
 
-      <h2 className="mt-6 font-display text-5xl uppercase leading-[0.9] text-text-white sm:text-7xl md:text-[100px]">
+      <h2 id="contact-heading" className="mt-6 font-display text-5xl uppercase leading-[0.9] text-text-white sm:text-7xl md:text-[100px]">
         Have a project?
         <br />
         <span className="text-neon-green">Let&apos;s talk.</span>
@@ -84,7 +84,7 @@ export default function Contact() {
           </ul>
 
           <div className="mt-12 inline-flex items-center gap-3 border border-line px-4 py-3">
-            <span className="h-2.5 w-2.5 animate-blink rounded-full bg-neon-green" />
+            <span aria-hidden="true" className="h-2.5 w-2.5 animate-blink rounded-full bg-neon-green" />
             <span className="font-mono text-xs uppercase tracking-[0.15em] text-text-white">
               Open to work
             </span>

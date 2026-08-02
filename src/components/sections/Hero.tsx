@@ -5,6 +5,7 @@ import { IconArrowRight } from "@tabler/icons-react"
 import NeonButton from "@/components/ui/NeonButton"
 import { random } from "@/lib/utils"
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery"
+import { CV_PATH } from "@/data/contact"
 
 function AnimatedName({ text, outline }: { text: string; outline?: boolean }) {
   const reduced = usePrefersReducedMotion()
@@ -187,7 +188,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="section-contain relative min-h-screen flex items-center overflow-hidden px-[8%] pt-24 pb-20">
+    <section aria-labelledby="hero-heading" className="section-contain relative min-h-screen flex items-center overflow-hidden px-[8%] pt-24 pb-20">
       {/* Grid bg */}
       <div
         ref={gridRef}
@@ -216,7 +217,7 @@ export default function Hero() {
             noraiz@dev:~$ <span aria-hidden="true" className="animate-blink">_</span>
           </motion.div>
 
-          <h1 className="font-display text-[56px] uppercase leading-[0.85] sm:text-[80px] md:text-[110px] lg:text-[120px]">
+          <h1 id="hero-heading" className="font-display text-[56px] uppercase leading-[0.85] sm:text-[80px] md:text-[110px] lg:text-[120px]">
             <AnimatedName text="NORAIZ" />
             <AnimatedName text="RANA" outline />
           </h1>
@@ -269,7 +270,8 @@ export default function Hero() {
               VIEW MY WORK
             </NeonButton>
             <a
-              href="/noraiz-rana-cv.pdf"
+              href={CV_PATH}
+              download
               className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wider text-text-off transition-colors hover:text-neon-green"
             >
               / Download CV

@@ -3,8 +3,8 @@ import { education } from "@/data/experience"
 
 export default function Education() {
   return (
-    <section id="education" className="section-contain relative px-[8%] py-24">
-      <SectionHeader number="05" title="Education" />
+    <section id="education" aria-labelledby="education-heading" className="section-contain relative px-[8%] py-24">
+      <SectionHeader number="05" title="Education" id="education-heading" />
 
       <div className="border-t border-line">
         {education.map((row) => (

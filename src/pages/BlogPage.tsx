@@ -1,5 +1,3 @@
-import { IconArrowUpRight } from "@tabler/icons-react"
-
 const posts = [
   {
     id: "1",
@@ -29,7 +27,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.id}
-            className="group grid grid-cols-1 gap-4 border-b border-line py-10 transition-colors hover:bg-surface-1 md:grid-cols-[160px_1fr_auto] md:gap-8"
+            className="grid grid-cols-1 gap-4 border-b border-line py-10 md:grid-cols-[160px_1fr] md:gap-8"
           >
             <div className="flex flex-col gap-2">
               <span className="font-mono text-xs uppercase tracking-wider text-text-muted">
@@ -40,17 +38,13 @@ export default function BlogPage() {
               </span>
             </div>
             <div>
-              <h2 className="font-condensed text-3xl font-bold uppercase text-text-white transition-colors group-hover:text-neon-green">
+              <h2 className="font-condensed text-3xl font-bold uppercase text-text-white">
                 {post.title}
               </h2>
               <p className="mt-2 max-w-2xl font-sans text-sm leading-relaxed text-text-off">
                 {post.excerpt}
               </p>
             </div>
-            <IconArrowUpRight
-              size={28}
-              className="text-text-off transition-transform group-hover:rotate-45 group-hover:text-neon-green"
-            />
           </article>
         ))}
       </div>

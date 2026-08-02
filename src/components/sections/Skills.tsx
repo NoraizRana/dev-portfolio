@@ -4,8 +4,8 @@ import { skillCategories } from "@/data/skills"
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-contain relative px-[8%] py-24">
-      <SectionHeader number="02" title="Skills" />
+    <section id="skills" aria-labelledby="skills-heading" className="section-contain relative px-[8%] py-24">
+      <SectionHeader number="02" title="Skills" id="skills-heading" />
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {skillCategories.map((cat) => (

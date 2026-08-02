@@ -54,7 +54,8 @@ export default function WorkDetailPage() {
       <div className="relative mt-10 aspect-video w-full max-w-4xl overflow-hidden border border-line bg-surface-2">
         <img
           src={project.thumbnail}
-          alt={project.title}
+          alt=""
+          aria-hidden="true"
           width={project.thumbnailWidth}
           height={project.thumbnailHeight}
           loading="eager"

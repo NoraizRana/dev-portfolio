@@ -15,7 +15,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 const inputClass =
-  "w-full border-b border-line bg-transparent py-3 font-sans text-text-white outline-none transition-colors focus:border-neon-green"
+  "w-full border-b border-line bg-transparent py-3 font-sans text-text-white transition-colors focus:border-neon-green"
 
 const labelClass = "font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted"
 const errorClass = "mt-1 font-mono text-xs text-neon-pink"
@@ -38,13 +38,15 @@ export default function ContactForm() {
       const result = await res.json()
       if (!res.ok) throw new Error(result.error || "Failed to send email")
 
-      const { default: confetti } = await import("canvas-confetti")
-      confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#39ff14", "#ff2d78", "#ffd60a"],
-      })
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const { default: confetti } = await import("canvas-confetti")
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#39ff14", "#ff2d78", "#ffd60a"],
+        })
+      }
 
       toast.success("Message sent. I'll be in touch. Thank You.", {
         style: {

@@ -3,8 +3,8 @@ import { experience } from "@/data/experience"
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-contain relative px-[8%] py-24">
-      <SectionHeader number="04" title="Experience" />
+    <section id="experience" aria-labelledby="experience-heading" className="section-contain relative px-[8%] py-24">
+      <SectionHeader number="04" title="Experience" id="experience-heading" />
 
       <div className="border-t border-line">
         {experience.map((row) => (

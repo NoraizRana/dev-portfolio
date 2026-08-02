@@ -20,6 +20,7 @@ export default function WorkPage() {
           <button
             key={tab}
             onClick={() => setFilter(tab)}
+            aria-pressed={filter === tab}
             className="relative pb-2 font-mono text-xs uppercase tracking-[0.15em]"
             style={{ color: filter === tab ? "#39ff14" : "#666666" }}
           >

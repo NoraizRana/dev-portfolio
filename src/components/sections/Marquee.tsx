@@ -39,7 +39,7 @@ function Row({ reverse }: { reverse?: boolean }) {
 
 export default function Marquee() {
   return (
-    <div className="border-y border-line bg-bg py-4">
+    <div aria-hidden="true" className="border-y border-line bg-bg py-4">
       <Row />
       <div className="mt-2">
         <Row reverse />
