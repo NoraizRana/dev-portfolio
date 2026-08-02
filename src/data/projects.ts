@@ -19,7 +19,7 @@ export interface Project {
   challenges: string[]
   solutions: string[]
   github?: string
-  live?: string
+  live?: string | null
 }
 
 export const projects: Project[] = [
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Heartbeat + reconnection buffer to restore presence seamlessly.",
     ],
     github: "https://github.com/NoraizRana/collaborink-platform",
-    live: "#",
+    live: null,
   },
   {
     id: "2",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
       "Python microservice exposed through an Express gateway.",
     ],
     github: "https://github.com/NoraizRana/aoa-virtual-assistant",
-    live: "#",
+    live: null,
   },
   {
     id: "3",
@@ -109,7 +109,7 @@ export const projects: Project[] = [
       "Searchable currency selector with sensible defaults.",
     ],
     github: "https://github.com/NoraizRana/AccuRates-A-Currency-Converter-App",
-    live: "#",
+    live: null,
   },
   {
     id: "4",
@@ -136,7 +136,7 @@ export const projects: Project[] = [
       "Modular JS with clear separation of concerns.",
     ],
     github: "https://github.com/NoraizRana/Noraiz-Portfolio",
-    live: "#",
+    live: null,
   },
 ]
 
