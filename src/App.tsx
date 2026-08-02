@@ -44,7 +44,7 @@ export default function App() {
         {/* Skip-to-content — hidden until focused, keyboard users only */}
         <a
           href="#main-content"
-          className="fixed -translate-y-full focus:translate-y-0 left-4 top-4 z-[9999] bg-neon-green px-4 py-2 font-mono text-xs uppercase text-black transition-transform"
+          className="fixed top-0 left-4 -translate-y-full focus-visible:translate-y-16 z-[9999] bg-neon-green px-4 py-2 font-mono text-xs uppercase text-black transition-transform"
         >
           Skip to content
         </a>
