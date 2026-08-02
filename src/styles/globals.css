@@ -72,12 +72,6 @@ html.lenis body {
   background: var(--neon-green);
 }
 
-/* Custom cursor — hide native on devices that support it */
-@media (hover: hover) and (pointer: fine) {
-  .cursor-active * {
-    cursor: none !important;
-  }
-}
 
 .text-stroke-green {
   -webkit-text-stroke: 2px var(--neon-green);

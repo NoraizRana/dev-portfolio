@@ -266,7 +266,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-6">
-            <NeonButton to="/work" cursor="VIEW">
+            <NeonButton to="/work">
               VIEW MY WORK
             </NeonButton>
             <a
