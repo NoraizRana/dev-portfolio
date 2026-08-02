@@ -3,18 +3,20 @@ import { motion } from "framer-motion"
 interface SectionHeaderProps {
   number: string
   title: string
+  id?: string
 }
 
-export default function SectionHeader({ number, title }: SectionHeaderProps) {
+export default function SectionHeader({ number, title, id }: SectionHeaderProps) {
   return (
     <div className="relative mb-12 md:mb-16">
-      <span className="ghost-number absolute -left-2 -top-24 text-[120px] md:-top-40 md:text-[200px]">
+      <span aria-hidden="true" className="ghost-number absolute -left-2 -top-24 text-[120px] md:-top-40 md:text-[200px]">
         {number}
       </span>
       <div className="relative z-10 flex items-baseline gap-4">
         <span className="font-mono text-sm text-neon-green">{number}</span>
         <div className="overflow-hidden">
           <motion.h2
+            id={id}
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-80px" }}

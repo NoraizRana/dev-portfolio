@@ -5,6 +5,7 @@ import { IconArrowRight } from "@tabler/icons-react"
 import NeonButton from "@/components/ui/NeonButton"
 import { random } from "@/lib/utils"
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery"
+import { CV_PATH } from "@/data/contact"
 
 function AnimatedName({ text, outline }: { text: string; outline?: boolean }) {
   const reduced = usePrefersReducedMotion()
@@ -44,6 +45,7 @@ function ProfileFrame() {
     >
       {/* Outer slow-rotating dashed ring */}
       <motion.div
+        aria-hidden="true"
         animate={{ rotate: 360 }}
         transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
         className="absolute pointer-events-none"
@@ -56,6 +58,7 @@ function ProfileFrame() {
 
       {/* Inner counter-rotating ring */}
       <motion.div
+        aria-hidden="true"
         animate={{ rotate: -360 }}
         transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
         className="absolute pointer-events-none"
@@ -74,6 +77,7 @@ function ProfileFrame() {
 
       {/* Scan line */}
       <motion.div
+        aria-hidden="true"
         animate={{ y: ["0%", "100%", "0%"] }}
         transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
         className="absolute left-0 right-0 h-[1.5px] z-20 pointer-events-none"
@@ -122,7 +126,7 @@ function ProfileFrame() {
         transition={{ delay: 1.2 }}
         className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2 border border-neon-green bg-bg px-4 py-2 whitespace-nowrap z-30"
       >
-        <span className="relative flex h-2 w-2 flex-shrink-0">
+        <span aria-hidden="true" className="relative flex h-2 w-2 flex-shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full bg-neon-green opacity-75" />
           <span className="relative inline-flex h-2 w-2 bg-neon-green" />
         </span>
@@ -184,7 +188,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="section-contain relative min-h-screen flex items-center overflow-hidden px-[8%] pt-24 pb-20">
+    <section aria-labelledby="hero-heading" className="section-contain relative min-h-screen flex items-center overflow-hidden px-[8%] pt-24 pb-20">
       {/* Grid bg */}
       <div
         ref={gridRef}
@@ -210,10 +214,10 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="mb-6 font-mono text-sm text-neon-green"
           >
-            noraiz@dev:~$ <span className="animate-blink">_</span>
+            noraiz@dev:~$ <span aria-hidden="true" className="animate-blink">_</span>
           </motion.div>
 
-          <h1 className="font-display text-[56px] uppercase leading-[0.85] sm:text-[80px] md:text-[110px] lg:text-[120px]">
+          <h1 id="hero-heading" className="font-display text-[56px] uppercase leading-[0.85] sm:text-[80px] md:text-[110px] lg:text-[120px]">
             <AnimatedName text="NORAIZ" />
             <AnimatedName text="RANA" outline />
           </h1>
@@ -266,7 +270,8 @@ export default function Hero() {
               VIEW MY WORK
             </NeonButton>
             <a
-              href="/noraiz-rana-cv.pdf"
+              href={CV_PATH}
+              download
               className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wider text-text-off transition-colors hover:text-neon-green"
             >
               / Download CV

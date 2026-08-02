@@ -52,9 +52,9 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
 
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 <div>
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-neon-pink">
+                  <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-neon-pink">
                     Challenges
-                  </h4>
+                  </h3>
                   <ul className="space-y-2">
                     {project.challenges.map((c) => (
                       <li key={c} className="flex gap-2 font-sans text-sm text-text-off">
@@ -65,9 +65,9 @@ export default function ProjectModal({ project, open, onOpenChange }: ProjectMod
                   </ul>
                 </div>
                 <div>
-                  <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-neon-green">
+                  <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-neon-green">
                     Solutions
-                  </h4>
+                  </h3>
                   <ul className="space-y-2">
                     {project.solutions.map((c) => (
                       <li key={c} className="flex gap-2 font-sans text-sm text-text-off">

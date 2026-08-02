@@ -105,6 +105,12 @@ html.lenis body {
   contain: layout;
 }
 
+/* Keyboard focus indicator — neon-green outline, 2px / 2px offset */
+:focus-visible {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

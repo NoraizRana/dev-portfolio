@@ -18,14 +18,15 @@ export default function Projects() {
   }
 
   return (
-    <section id="work" className="section-contain relative px-[8%] py-24">
-      <SectionHeader number="03" title="Work" />
+    <section id="work" aria-labelledby="work-heading" className="section-contain relative px-[8%] py-24">
+      <SectionHeader number="03" title="Work" id="work-heading" />
 
       <div className="mb-8 flex flex-wrap gap-6">
         {filterTabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setFilter(tab)}
+            aria-pressed={filter === tab}
             className="relative pb-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
             style={{ color: filter === tab ? "#39ff14" : "#666666" }}
           >

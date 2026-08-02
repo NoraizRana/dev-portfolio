@@ -3,6 +3,7 @@ import type { ElementType } from "react"
 
 export const EMAIL = "noraizrana389@gmail.com"
 export const LOCATION = "LAHORE, PK"
+export const CV_PATH = "/Noraiz_Rana_FullStack_Developer.pdf"
 
 export const SOCIALS: Array<{ label: string; icon: ElementType; href: string }> = [
   { label: "LinkedIn", icon: IconBrandLinkedin, href: "https://www.linkedin.com/in/noraiz-rana-291277344/" },

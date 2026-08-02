@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer"
 import SectionHeader from "@/components/ui/SectionHeader"
 import StatsRow from "@/components/ui/StatsRow"
 import { IconArrowRight } from "@tabler/icons-react"
+import { CV_PATH } from "@/data/contact"
 
 function easeOutExpo(t: number): number {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
@@ -36,8 +37,8 @@ export default function About() {
   const cgpa = useCountUp(3.36, 1, 1.6, inView)
 
   return (
-    <section id="about" className="section-contain relative px-[8%] py-24">
-      <SectionHeader number="01" title="About Me" />
+    <section id="about" aria-labelledby="about-heading" className="section-contain relative px-[8%] py-24">
+      <SectionHeader number="01" title="About Me" id="about-heading" />
 
       <div className="grid gap-12 md:grid-cols-[60%_40%] md:gap-16">
         <div>
@@ -62,7 +63,8 @@ export default function About() {
 
           <div className="mt-8 flex flex-wrap gap-6">
             <a
-              href="#"
+              href={CV_PATH}
+              download
               className="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wider text-neon-green"
             >
               <IconArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
