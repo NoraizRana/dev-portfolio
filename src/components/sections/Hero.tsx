@@ -153,7 +153,7 @@ function ProfileFrame() {
         transition={{ delay: 1.5 }}
         className="absolute -left-3 bottom-16 border border-line bg-bg px-3 py-2 z-30 hidden sm:block"
       >
-        <p className="font-display text-2xl text-neon-green leading-none">2+</p>
+        <p className="font-display text-2xl text-neon-green leading-none">1.5+</p>
         <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mt-0.5">Yrs</p>
       </motion.div>
     </motion.div>
