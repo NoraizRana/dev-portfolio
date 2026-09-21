@@ -7,16 +7,18 @@ export interface ExperienceRow {
 
 export const experience: ExperienceRow[] = [
   {
-    period: "2025–PRESENT",
+    period: "DEC 2025 – PRESENT",
     company: "Steganox",
-    role: "Full Stack Engineer",
-    achievement: "Building AI-integrated client products with React + Node.js.",
+    role: "Associate Software Engineer",
+    achievement:
+      "Own end-to-end delivery of 12 production features — 25+ REST endpoints and 6 admin dashboard modules with role-based access across 3 user roles — cutting average endpoint response time from 180ms to 95ms.",
   },
   {
-    period: "2024(4 months)",
+    period: "JUN 2025 – OCT 2025",
     company: "AppVerse Technologies",
     role: "Frontend Developer Intern",
-    achievement: "Shipped responsive UI components with React to production.",
+    achievement:
+      "Shipped 20+ reusable React and Tailwind CSS components powering 12 live screens, integrated with 20+ backend REST endpoints — cutting build time per new screen by 40%.",
   },
 ]
 
